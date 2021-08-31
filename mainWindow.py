@@ -1,6 +1,6 @@
 from ui_form import Ui_Main
 from PySide6.QtWidgets import QApplication, QWidget, QGraphicsView, QGraphicsScene
-import sys
+from random import randint
 import pyqtgraph as pg
 from pyqtgraph import PlotWidget, plot
 from PySide6.QtGui import QPen,QColor, QMouseEvent, Qt
@@ -11,7 +11,8 @@ class Main(QWidget):
         super().__init__()
         self.ui = Ui_Main()
         self.ui.setupUi(self)
-        self.lista = []
+        self.trainingSet = []
+        self.weights = []
 
         self.scene = QGraphicsScene()
         self.scene.setSceneRect(0, 0, 386, 286)
@@ -24,18 +25,23 @@ class Main(QWidget):
         self.graph.setYRange(5, -5)
         self.scene.addWidget(self.graph)
 
-    def onCLick(self, QMouseEvent):
-        if QMouseEvent.button() == Qt.LeftButton:
-            pluma = QPen()
-            pluma.setColor("g")
-            coordenada = {
-                "x": int(QMouseEvent.x()),
-                "y": int(QMouseEvent.x())
-            }
-            tipo = 0
+    def perceptron(self):
+       weight = randint(-5, 5)
+       n = int(self.ui.Eta)
+       done = False
+       while done == False:
+           done = True
+           for punto in self.trainingSet:
 
-            punto = Punto()
-            punto.coordenada = coordenada
-            punto.tipo = tipo
-            self.lista.append(punto)
+               error = punto.tipo - self.pw(punto,weight)
+               if error != 0:
+                    done = False
+                    w = w + n * error * punto
 
+
+    def pw(self,point,w):
+
+        if point * w >= 0:
+            return 1
+        else:
+            return 0
