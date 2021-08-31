@@ -1,18 +1,18 @@
 from ui_form import Ui_Main
 from PySide6.QtWidgets import QApplication, QWidget, QGraphicsView, QGraphicsScene
-import os
-from pathlib import Path
 import sys
 import pyqtgraph as pg
 from pyqtgraph import PlotWidget, plot
+from PySide6.QtGui import QPen,QColor, QMouseEvent, Qt
+from punto import Punto
 
 class Main(QWidget):
     def __init__(self):
         super().__init__()
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+        self.lista = []
 
-        # pen = pg.mkPen(color=())
         self.scene = QGraphicsScene()
         self.scene.setSceneRect(0, 0, 386, 286)
         self.ui.Grid.setScene(self.scene)
@@ -24,4 +24,18 @@ class Main(QWidget):
         self.graph.setYRange(5, -5)
         self.scene.addWidget(self.graph)
 
+    def onCLick(self, QMouseEvent):
+        if QMouseEvent.button() == Qt.LeftButton:
+            pluma = QPen()
+            pluma.setColor("g")
+            coordenada = {
+                "x": int(QMouseEvent.x()),
+                "y": int(QMouseEvent.x())
+            }
+            tipo = 0
+
+            punto = Punto()
+            punto.coordenada = coordenada
+            punto.tipo = tipo
+            self.lista.append(punto)
 
