@@ -29,34 +29,42 @@ class Ui_Main(object):
         self.widget.setObjectName(u"widget")
         self.gridLayout_3 = QGridLayout(self.widget)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.iniciarPesos = QPushButton(self.widget)
-        self.iniciarPesos.setObjectName(u"iniciarPesos")
+        self.tipo2 = QRadioButton(self.widget)
+        self.tipo2.setObjectName(u"tipo2")
 
-        self.gridLayout_3.addWidget(self.iniciarPesos, 4, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_3.addItem(self.horizontalSpacer, 4, 0, 1, 1)
-
-        self.epocasMax = QSpinBox(self.widget)
-        self.epocasMax.setObjectName(u"epocasMax")
-        self.epocasMax.setMinimum(1)
-        self.epocasMax.setMaximum(9999999)
-
-        self.gridLayout_3.addWidget(self.epocasMax, 3, 0, 1, 2)
+        self.gridLayout_3.addWidget(self.tipo2, 5, 0, 1, 1)
 
         self.Eta = QDoubleSpinBox(self.widget)
         self.Eta.setObjectName(u"Eta")
         self.Eta.setDecimals(1)
         self.Eta.setMinimum(0.100000000000000)
         self.Eta.setMaximum(0.900000000000000)
+        self.Eta.setSingleStep(0.100000000000000)
 
-        self.gridLayout_3.addWidget(self.Eta, 2, 0, 1, 2)
+        self.gridLayout_3.addWidget(self.Eta, 3, 0, 1, 1)
 
         self.iniciarPerceptron = QPushButton(self.widget)
         self.iniciarPerceptron.setObjectName(u"iniciarPerceptron")
 
         self.gridLayout_3.addWidget(self.iniciarPerceptron, 5, 1, 1, 1)
+
+        self.epocasMax = QSpinBox(self.widget)
+        self.epocasMax.setObjectName(u"epocasMax")
+        self.epocasMax.setMinimum(1)
+        self.epocasMax.setMaximum(9999999)
+
+        self.gridLayout_3.addWidget(self.epocasMax, 0, 0, 1, 1)
+
+        self.tipo1 = QRadioButton(self.widget)
+        self.tipo1.setObjectName(u"tipo1")
+        self.tipo1.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.tipo1, 4, 0, 1, 1)
+
+        self.iniciarPesos = QPushButton(self.widget)
+        self.iniciarPesos.setObjectName(u"iniciarPesos")
+
+        self.gridLayout_3.addWidget(self.iniciarPesos, 4, 1, 1, 1)
 
 
         self.gridLayout.addWidget(self.widget, 0, 1, 1, 1)
@@ -68,6 +76,9 @@ class Ui_Main(object):
 
         self.Grid = QGraphicsView(Main)
         self.Grid.setObjectName(u"Grid")
+        self.Grid.setMinimumSize(QSize(386, 286))
+        self.Grid.setMaximumSize(QSize(386, 286))
+        self.Grid.setMouseTracking(True)
 
         self.gridLayout.addWidget(self.Grid, 0, 0, 1, 1)
 
@@ -79,7 +90,9 @@ class Ui_Main(object):
 
     def retranslateUi(self, Main):
         Main.setWindowTitle(QCoreApplication.translate("Main", u"Main", None))
-        self.iniciarPesos.setText(QCoreApplication.translate("Main", u"Iniciar pesos", None))
+        self.tipo2.setText(QCoreApplication.translate("Main", u"Tipo 2", None))
         self.iniciarPerceptron.setText(QCoreApplication.translate("Main", u"Perceptron", None))
+        self.tipo1.setText(QCoreApplication.translate("Main", u"Tipo 1", None))
+        self.iniciarPesos.setText(QCoreApplication.translate("Main", u"Iniciar pesos", None))
     # retranslateUi
 

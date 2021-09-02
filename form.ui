@@ -20,37 +20,14 @@
    <item row="0" column="1">
     <widget class="QWidget" name="widget" native="true">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="4" column="1">
-       <widget class="QPushButton" name="iniciarPesos">
+      <item row="5" column="0">
+       <widget class="QRadioButton" name="tipo2">
         <property name="text">
-         <string>Iniciar pesos</string>
+         <string>Tipo 2</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QSpinBox" name="epocasMax">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-        <property name="maximum">
-         <number>9999999</number>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
+      <item row="3" column="0">
        <widget class="QDoubleSpinBox" name="Eta">
         <property name="decimals">
          <number>1</number>
@@ -73,6 +50,33 @@
         </property>
        </widget>
       </item>
+      <item row="0" column="0">
+       <widget class="QSpinBox" name="epocasMax">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>9999999</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QRadioButton" name="tipo1">
+        <property name="text">
+         <string>Tipo 1</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="iniciarPesos">
+        <property name="text">
+         <string>Iniciar pesos</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -92,6 +96,9 @@
        <width>386</width>
        <height>286</height>
       </size>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

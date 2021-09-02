@@ -1,5 +1,7 @@
-from ui_form import Ui_Main
-from PySide6.QtWidgets import QApplication, QWidget, QGraphicsView, QGraphicsScene
+from PySide6.QtCore import Slot
+
+import ui_form
+from PySide6.QtWidgets import QApplication, QWidget, QGraphicsView, QGraphicsScene, QGraphicsSceneMouseEvent
 from random import randint
 import pyqtgraph as pg
 from pyqtgraph import PlotWidget, plot
@@ -9,7 +11,7 @@ from punto import Punto
 class Main(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_Main()
+        self.ui = ui_form.Ui_Main()
         self.ui.setupUi(self)
         self.trainingSet = []
         self.weights = []
@@ -24,6 +26,10 @@ class Main(QWidget):
         self.graph.setXRange(5, -5)
         self.graph.setYRange(5, -5)
         self.scene.addWidget(self.graph)
+
+        self.scene.mousePressEvent = self.click
+
+        self.ui.iniciarPesos.clicked.connect(self.iniciarPesos)
 
     def perceptron(self):
        weight = randint(-5, 5)
@@ -45,3 +51,19 @@ class Main(QWidget):
             return 1
         else:
             return 0
+
+    @Slot()
+    def iniciarPesos(self):
+        pass
+
+    @Slot()
+    def click(self, event):
+        pen = QPen()
+        x = event.scenePos().x()
+        y = event.scenePos().y()
+        pen.setWidth(2)
+        if self.ui.tipo1.isChecked():
+            pen.setColor("green")
+        elif self.ui.tipo2.isChecked():
+            pen.setColor("red")
+        self.scene.addEllipse(x, y, 2, 2, pen)
