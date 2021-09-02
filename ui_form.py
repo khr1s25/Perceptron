@@ -34,14 +34,14 @@ class Ui_Main(object):
 
         self.gridLayout_3.addWidget(self.tipo2, 5, 0, 1, 1)
 
-        self.Eta = QDoubleSpinBox(self.widget)
-        self.Eta.setObjectName(u"Eta")
-        self.Eta.setDecimals(1)
-        self.Eta.setMinimum(0.100000000000000)
-        self.Eta.setMaximum(0.900000000000000)
-        self.Eta.setSingleStep(0.100000000000000)
+        self.learnigRate = QDoubleSpinBox(self.widget)
+        self.learnigRate.setObjectName(u"learnigRate")
+        self.learnigRate.setDecimals(1)
+        self.learnigRate.setMinimum(0.100000000000000)
+        self.learnigRate.setMaximum(0.900000000000000)
+        self.learnigRate.setSingleStep(0.100000000000000)
 
-        self.gridLayout_3.addWidget(self.Eta, 3, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.learnigRate, 3, 0, 1, 1)
 
         self.iniciarPerceptron = QPushButton(self.widget)
         self.iniciarPerceptron.setObjectName(u"iniciarPerceptron")
